@@ -6,7 +6,7 @@
       // openHAB Item syntax completion
         {
           "name": "openhab.items.types",
-          "defaultAppend": "    ${1:Item_ID} \"${2:Item Label} [${3:stateformat}]\" <${4:icon}> (${5:Group}) [\"${6:Tags}\"] { channel=\"${7:example:thing:channel}\" }",
+          "defaultAppend": "    ${1:Item_ID} \"${2:Item Label} ${3:[${4:stateformat}]}\" <${5:icon}> (${6:Group}) ${7:[\"${8:Tags}\"]} { channel=\"${9:example:thing:channel}\" }",
           "strings": [
             "Color",
             "Contact",
@@ -25,9 +25,9 @@
           "name": "openhab.items.binding-configuration",
           "defaultAppend": "",
           "strings": [
-            { "string": "channel", "append": " = \"${1:example:thing:channel}\"" },
-            { "string": "autoupdate", "append": " = \"false\"" },
-            { "string": "expire", "append": " = \"120s, state=OPEN\"" }
+            { "string": "channel", "append": "=\"${1:example:thing:channel}\"" },
+            { "string": "autoupdate", "append": "=\"${1:false}\"" },
+            { "string": "expire", "append": "=\"${1:120s}${2:, ${3:state}=${4:OPEN}}\"" }
           ]
         },
         {
@@ -49,14 +49,41 @@
           "name": "openhab.things.knx.device",
           "defaultAppend": "",
           "strings": [
-            { "string": "Thing knx", "replace": "Thing device ${1:knx_device} \"${2:knx_device_name}\" @ \"${3:location}\" [\n    address=\"${4:x.y.z}\",\n    fetch=true,\n    pingInterval=300,\n    readInterval=900\n] {\n    // Channel\n}" }
+            { "string": "KNX Thing", "replace": "Thing device ${1:knx_device} \"${2:knx_device_name}\" @ \"${3:location}\" [\n    address=\"${4:x.y.z}\",\n    fetch=${5:true},\n    pingInterval=300,\n    readInterval=900\n] {\n    ${6://Channel }\n}" }
           ]
         },
         {
           "name": "openhab.things.knx.channel",
           "defaultAppend": "",
           "strings": [
-            { "string": "Type", "replace": "Type ${1:type}        : ${2:Channel_ID}       \"${3:Channel Label}\"        [ ga=\"${4:dpt:}${5:<}${6:x/y/z}${7:+}${8:<}${9:x/y/z}\" ]\n    " }
+            { "string": "KNX Type", "replace": "Type ${1:type}        : ${2:Channel_ID}       \"${3:Channel Label}\"        [ ga=\"${4:dpt:}${5:<}${6:x/y/z}${7:+${8:<}${9:x/y/z}}\" ]" }
+          ]
+        },
+      // openHAB Sitemap syntax completion
+        {
+          "name": "openhab.sitemap.structure",
+          "defaultAppend": "",
+          "strings": [
+            { "string": "frame", "replace": "Frame label=\"${1:Label}\" {\n    ${2:Element}\n}" },
+            { "string": "text-menu", "replace": "Text item=${1:Itemname}${2: label=\"${3:Label}\"}${4: icon=\"${5:icon}\"} {\n    ${6:Element}\n}" }
+          ]
+        },
+        {
+          "name": "openhab.sitemap.element",
+          "defaultAppend": "",
+          "strings": [
+            { "string": "element", "replace": "${1:Element_Type} item=${2:Itemname}${3: label=\"${4:Label}\" }${5:icon=\"${6:icon}\"}" }
+          ]
+        },
+        {
+          "name": "openhab.sitemap.element.parameters",
+          "defaultAppend": "",
+          "strings": [
+            { "string": "setpoint", "replace": "minValue=${1:x} maxValue=${2:y} step=${3:z}" },
+            { "string": "mappings", "replace": "mappings=[${1:state}=\"${2:label}\"${3:, ${4:state}=\"${5:label}\"}]" },
+            { "string": "visibility", "replace": "visibility=[${1:item}${2:==}${3:ON}]"},
+            { "string": "valuecolor", "replace": "valuecolor=[${1:state}=\"${2:color}\"${3:, ${4:state}=\"${5:color}\"}]" },
+            { "string": "labelcolor", "replace": "label=[${1:state}=\"${2:color}\"${3:, ${4:state}=\"${5:color}\"}]" }
           ]
         }
     ],
@@ -99,6 +126,18 @@
             "completionSetNames": [
                 "openhab.things.knx.device",
                 "openhab.things.knx.channel"
+            ]
+        },
+      // openHAB Sitemap configuration
+        {
+            "description": "Sitemap components",
+            "scope": "source.openhab - comment - string",
+            "pattern": "(?<!\\.|\\[|\\(|,)\\b([a-zA-Z]+)",
+            "completionCaptureIndex": 1,
+            "completionSetNames": [
+                "openhab.sitemap.structure",
+                "openhab.sitemap.element",
+                "openhab.sitemap.element.parameters"
             ]
         }
     ]
