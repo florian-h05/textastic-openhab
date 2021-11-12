@@ -1,0 +1,105 @@
+{
+    "description": "Textastic Code Completion for openHAB",
+    "uuid": "a4ac546d-5205-4456-a0c7-483f018e1f5e",
+
+    "completionSets": [
+      // openHAB Item syntax completion
+        {
+          "name": "openhab.items.types",
+          "defaultAppend": "    ${1:Item_ID} \"${2:Item Label} [${3:stateformat}]\" <${4:icon}> (${5:Group}) [\"${6:Tags}\"] { channel=\"${7:example:thing:channel}\" }",
+          "strings": [
+            "Color",
+            "Contact",
+            "DateTime",
+            "Dimmer",
+            "Group",
+            "Image",
+            "Location",
+            "Number",
+            "Player",
+            "Rollershutter",
+            "Switch"
+          ]
+        },
+        {
+          "name": "openhab.items.binding-configuration",
+          "defaultAppend": "",
+          "strings": [
+            { "string": "channel", "append": " = \"${1:example:thing:channel}\"" },
+            { "string": "autoupdate", "append": " = \"false\"" },
+            { "string": "expire", "append": " = \"120s, state=OPEN\"" }
+          ]
+        },
+        {
+          "name": "openhab.items.binding-configuration.homekit",
+          "defaultAppend": "",
+          "strings": [
+            "= \"Lighting\"",
+            "= \"WindowCovering\"  [inverted=\"false\"]",
+            "= \"Switchable\"",
+            "= \"Window\"",
+            "= \"CurrentTemperature\"",
+            "= \"LeakSensor\"",
+            "= \"LightSensor\"",
+            "= \"ContactSensor\""
+          ]
+        },
+      // openHAB Thing syntax completion
+        {
+          "name": "openhab.things.knx.device",
+          "defaultAppend": "",
+          "strings": [
+            { "string": "Thing knx", "replace": "Thing device ${1:knx_device} \"${2:knx_device_name}\" @ \"${3:location}\" [\n    address=\"${4:x.y.z}\",\n    fetch=true,\n    pingInterval=300,\n    readInterval=900\n] {\n    // Channel\n}" }
+          ]
+        },
+        {
+          "name": "openhab.things.knx.channel",
+          "defaultAppend": "",
+          "strings": [
+            { "string": "Type", "replace": "Type ${1:type}        : ${2:Channel_ID}       \"${3:Channel Label}\"        [ ga=\"${4:dpt:}${5:<}${6:x/y/z}${7:+}${8:<}${9:x/y/z}\" ]\n    " }
+          ]
+        }
+    ],
+    
+    "contexts": [
+      // openHAB Item configuration
+        {
+            "description": "Item Components",
+            "scope": "source.openhab - comment - string",
+            "pattern": "(?<!\\.|\\[|\\(|,)\\b([a-zA-Z]+)",
+            "completionCaptureIndex": 1,
+            "completionSetNames": [
+                "openhab.items.types"
+            ]
+        },
+        {
+            "description": "Item Binding Configuration",
+            "scope": "source.openhab - comment - string",
+            "pattern": "(?<!\\.|\\[|\\(|,)\\b([a-zA-Z]+)",
+            "completionCaptureIndex": 1,
+            "completionSetNames": [
+                "openhab.items.binding-configuration"
+            ]
+        },
+        {
+            "description": "Item Binding Configuration HomeKit Tags",
+            "scope": "source.openhab - comment - string",
+            "pattern": "\\bhomekit\\s+([a-zA-Z]*)",
+            "completionCaptureIndex": 1,
+            "completionSetNames": [
+                "openhab.items.binding-configuration.homekit"
+            ]
+        },
+      // openHAB Thing configuration
+        {
+            "description": "Thing KNX",
+            "scope": "source.openhab - comment - string",
+            "pattern": "(?<!\\.|\\[|\\(|,)\\b([a-zA-Z]+)",
+            "completionCaptureIndex": 1,
+            "completionSetNames": [
+                "openhab.things.knx.device",
+                "openhab.things.knx.channel"
+            ]
+        }
+    ]
+}
