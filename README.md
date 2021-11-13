@@ -30,6 +30,10 @@ Currently, these code completions are supported:
 
 Just navigate through the values to set by using ```TAB```, you can also delete them when they are highlighted.
 
+## Syntax Highlighting
+
+Syntax highlighting for the openHAB configuration files is completely based on [@reitermarkus](https://github.com/reitermarkus) work in [reitermarkus/OpenHAB.tmbundle](https://github.com/reitermarkus/OpenHAB.tmbundle).
+
 ## Templates
 
 There are three really short templates for rules, persistence and sitemaps.

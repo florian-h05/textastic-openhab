@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>me@reitermark.us</string>
+	<key>contactName</key>
+	<string>Markus Reiter</string>
+	<key>description</key>
+	<string>Syntax Highlighting for OpenHAB Configuration Files</string>
+	<key>mainMenu</key>
+	<dict/>
+	<key>name</key>
+	<string>OpenHAB</string>
+	<key>source</key>
+	<dict>
+		<key>method</key>
+		<string>git</string>
+		<key>url</key>
+		<string>git@github.com:reitermarkus/OpenHAB.tmbundle</string>
+	</dict>
+	<key>uuid</key>
+	<string>54a3dd79-9146-476f-a5e2-5979a9f923a8</string>
+</dict>
+</plist>
