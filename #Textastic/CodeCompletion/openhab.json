@@ -1,3 +1,7 @@
+/*
+Copyright (c) 2021 Florian Hotze under MIT License
+*/
+
 {
     "description": "Textastic Code Completion for openHAB",
     "uuid": "a4ac546d-5205-4456-a0c7-483f018e1f5e",
