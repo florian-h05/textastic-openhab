@@ -38,14 +38,14 @@ Copyright (c) 2021 Florian Hotze under MIT License
           "name": "openhab.items.binding-configuration.homekit",
           "defaultAppend": "",
           "strings": [
-            "= \"Lighting\"",
-            "= \"WindowCovering\"  [inverted=\"false\"]",
-            "= \"Switchable\"",
-            "= \"Window\"",
-            "= \"CurrentTemperature\"",
-            "= \"LeakSensor\"",
-            "= \"LightSensor\"",
-            "= \"ContactSensor\""
+            "=\"Lighting\"",
+            "=\"WindowCovering\"  [inverted=\"false\"]",
+            "=\"Switchable\"",
+            "=\"Window\"",
+            "=\"CurrentTemperature\"",
+            "=\"LeakSensor\"",
+            "=\"LightSensor\"",
+            "=\"ContactSensor\""
           ]
         },
       // openHAB Thing syntax completion
@@ -115,7 +115,7 @@ Copyright (c) 2021 Florian Hotze under MIT License
         {
             "description": "Item Binding Configuration HomeKit Tags",
             "scope": "source.openhab - comment - string",
-            "pattern": "\\bhomekit\\s+([a-zA-Z]*)",
+            "pattern": "\\bhomekit(\\w*)",
             "completionCaptureIndex": 1,
             "completionSetNames": [
                 "openhab.items.binding-configuration.homekit"
