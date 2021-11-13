@@ -1,0 +1,21 @@
+{
+  "uuid": "9c4276aa-bc73-46f5-a924-3b443b6fba12",
+  "category": "openHAB",
+  "templates": [
+    {
+      "name": "Persistence",
+      "fileExtension": "persist",
+      "snippet": "Strategies {\n  everyMinute : \"0 * * ? * *\"\n  default = everyUpdate\n}\n\nItems {\n  // Persist all items in group PersistRestore every minute and on change and restore them on startup.\n  PersistRestore* : strategy = everyChange, everyMinute, restoreOnStartup\n}"
+    },
+    {
+      "name": "Rules",
+      "fileExtension": "rules",
+      "snippet": "// openHAB Rules Definiton\nrule \"openHAB rule\"\nwhen\n  // Triggers\nthen\n  // Actions\nend"
+    },
+    {
+      "name": "Sitemap",
+      "fileExtension": "sitemap",
+      "snippet": "sitemap Sitemap label=\"Sitemap\" {\n\n}"
+    }
+  ]
+}
