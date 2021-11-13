@@ -15,8 +15,8 @@ Currently, these code completions are supported:
         * ```expire```
         * ```homekit```
 * Things:
-    * KNX device with ```KNX Thing```
-    * KNX channel with ```KNX Type```
+    * KNX device with ```Thing KNX```
+    * KNX channel with ```Type KNX```
 * Sitemaps:
     * Frame with ```frame```
     * Text menu with ```text-menu```

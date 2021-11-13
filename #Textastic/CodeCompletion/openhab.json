@@ -53,14 +53,14 @@ Copyright (c) 2021 Florian Hotze under MIT License
           "name": "openhab.things.knx.device",
           "defaultAppend": "",
           "strings": [
-            { "string": "KNX Thing", "replace": "Thing device ${1:knx_device} \"${2:knx_device_name}\" @ \"${3:location}\" [\n    address=\"${4:x.y.z}\",\n    fetch=${5:true},\n    pingInterval=300,\n    readInterval=900\n] {\n    ${6://Channel }\n}" }
+            { "string": "Thing KNX", "replace": "Thing device ${1:knx_device} \"${2:knx_device_name}\" @ \"${3:location}\" [\n    address=\"${4:x.y.z}\",\n    fetch=${5:true},\n    pingInterval=300,\n    readInterval=900\n] {\n    ${6://Channel }\n}" }
           ]
         },
         {
           "name": "openhab.things.knx.channel",
           "defaultAppend": "",
           "strings": [
-            { "string": "KNX Type", "replace": "Type ${1:type}        : ${2:Channel_ID}       \"${3:Channel Label}\"        [ ga=\"${4:dpt:}${5:<}${6:x/y/z}${7:+${8:<}${9:x/y/z}}\" ]" }
+            { "string": "Type KNX", "replace": "Type ${1:type}        : ${2:Channel_ID}       \"${3:Channel Label}\"        [ ga=\"${4:dpt:}${5:<}${6:x/y/z}${7:+${8:<}${9:x/y/z}}\" ]" }
           ]
         },
       // openHAB Sitemap syntax completion
